@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.com.google.devtools.ksp)
+    alias(libs.plugins.com.google.dagger.hilt.android )
+    alias (libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -56,4 +59,21 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Compose navigation
+    implementation(libs.navigation.compose)
+
+    // Room database
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+
+    // Dagger hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.hilt.compilers)
+
+    // kotlin serialization
+    implementation(libs.kotlinx.serialization.json)
+
 }
